@@ -1,0 +1,149 @@
+@import './variables';
+@import './lightbox';
+@import url('https://fonts.googleapis.com/css?family=Gentium+Basic|ABeeZee|Tangerine:700&display=swap');
+
+
+body {
+    font-family: 'ABeeZee', ;
+    background-color: $color2;
+    color: $color1;
+    margin: 0;
+}
+main {
+    display: inline-block;
+    margin: 0 1em 0 1em;
+}
+
+nav, footer {
+    padding: 1em;
+}
+.pic-container {
+    width: 100%;
+    height: 40vh;
+    overflow: hidden;
+    vertical-align: middle;
+    background-position: center;
+    background-size: cover;
+}
+header {
+    background-image: linear-gradient($color3, $color3, $color3, rgba(0,0,0,0));
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    .nav-link {
+        margin: 0 0.5em;
+    }
+}
+footer {
+    background-image: linear-gradient(rgba(0, 0, 0,0), $color3, $color3, $color3);
+    display: flex;
+    & > div {
+        margin: 1em;
+    }
+}
+
+h1, h2 { font-family: "Gentium-Basic", serif; }
+
+.float-right {
+    float: right;
+}
+
+main { margin: 2em; }
+
+.action-container {
+    padding: 1em;
+    text-align: center;
+}
+
+.call-action {
+    background-color: $color3;
+    border: none;
+    color: $color1;
+    padding: 1em;
+    font-size: 1em;
+}
+
+.package-pic {
+    clear: right;
+    float: right;
+    margin: 1em;
+    height: 300px;
+    width: auto;
+}
+
+.icon {
+    height: 1em;
+    object-fit: cover;
+    object-position: 0 0;
+    width: 1em;
+    opacity: 70%;
+    vertical-align:middle;
+    transition: 0.6;
+}
+a {
+    color: $color1;
+    text-decoration: none;
+    &:hover .icon { opacity: 100%; }
+    &.nav-link {
+        &:hover { text-decoration: underline; }
+    }
+    &.navbar-brand {
+        font-family: 'Tangerine', cursive;
+        font-size: 5vw;
+        &:hover { text-decoration: underline; }
+    }
+}
+
+h3 {
+    margin-top: 1em;
+}
+
+@media screen and (max-width: 643px) {
+    #about-pic {
+        float: none;
+        margin: 0 auto;
+        max-width: 100%;
+        background-position: top;
+    }
+    a.navbar-brand {
+        font-size: 33px;
+    }
+    .logo-text {
+        display: none;
+    }
+    .icon {
+        float: left;
+        width: 2em;
+        height: 2em;
+    }
+    main {
+        margin: 5vw;
+    }
+}
+
+@media screen and (min-width: 644px) {
+    #about-pic {
+        float: right;
+        margin-left: 1em;
+        margin-bottom: 1em;
+    }
+}
+#about-pic {
+    display: block;
+    background-image: url("https://www.joelenesimages.com/uploads/1/9/1/0/19107423/published/1382655855.jpg?1579551660");
+    height: 274px;
+    width: 411px;
+    background-repeat: no-repeat;
+    border-radius: 1em;
+    position: relative;
+    & .label-text {
+        bottom: 0;
+        padding: 0 1em;
+        position: absolute;
+    }
+}
+.label-text {
+    text-shadow: 0 0 10px $color2;
+    z-index: 1;
+}

@@ -2,9 +2,8 @@ document.getElementsByTagName('header')[0].innerHTML = `
     <nav class="navbar">
         <a class="navbar-brand" href="./index.html">Joelene's Images</a>
         <div class="navbar-collapse">
-            <a class="nav-link" href="./index.html">Home</a>
             <a class="nav-link" href="./about.html">About</a>
-            <a class="nav-link" href="./packages.html">Packages</a>
+            <!--<a class="nav-link" href="./packages.html">Packages</a>-->
             <a class="nav-link" href="./photographs.html">Photographs</a>
         </div>
     </nav>
@@ -15,7 +14,7 @@ document.getElementsByTagName('footer')[0].innerHTML = `
         Wed-Thurs: 11:00am - 7:00pm<br>
         Fri: 12:00pm - 7:00pm<br>
         Sat: 10:00am - 5:00pm<br>
-        Sun-Tues: Closed<br>
+        Sun-Tues: Closed<br><br>
         <em>Appointments during closed hours only 2 weeks in advance.</em>
     </div>
     <div>
@@ -39,6 +38,6 @@ document.getElementsByTagName('footer')[0].innerHTML = `
             7578 N. Broadway, Suite #3<br>
             Red Hook, NY 12571
         </address><br>
-        <div id="copyright">&copy; Joelene's Images, 2020</div>
+        <div id="copyright">&copy; 2020 Joelene's Images</div>
     </div>    
 `

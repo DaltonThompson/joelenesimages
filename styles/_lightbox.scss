@@ -1,0 +1,129 @@
+.section-title {
+    clear: both;
+    margin: 0 1em;
+}
+
+.photographs-page {
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    margin: 0;
+    section {
+        margin: 1em;
+    }
+}
+
+.reel-cover {
+    float: left;
+    cursor: pointer;
+    display: flex;
+    margin: 2em;
+    height: 150px;
+    width: 150px;
+    border-radius: 1em;
+    overflow: hidden;
+    box-shadow: inset 0 0 100px $color2;
+    background-position: center;
+    background-size: cover;
+    text-align: center;
+    vertical-align: middle;
+    transition: 0.6s;
+    & .label-text {
+        transition: 0.6s;
+        margin: auto;
+        padding: 1em;
+    }
+    &:hover {
+        box-shadow: inset 0 0 1px $color2;
+        & .label-text {
+            opacity: 0%;
+        }
+    }
+}
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 2; /* Sit on top */
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0,0,0,0.8); /* Black w/ opacity */
+    transition-delay: 0.6s;
+    .slide {
+        margin: auto;
+        max-width: 100%;
+        max-height: 100%;
+        display: none;
+        transition-delay: 0.6s;
+    }
+    .close {
+        color: $color1;
+        float: right;
+        font-size: 2em;
+        font-weight: bold;
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding: 1em;
+        width: auto;
+        height: auto;
+        text-align: center;
+        align-items: center;
+        border-radius: 0 0 0 1em;
+        transition: 0.6s ease;
+        &:hover, &:focus {
+            text-decoration: none;
+            cursor: pointer;
+            background-color: black;
+        }
+    }
+    .prev, .next {
+        cursor: pointer;
+        position: fixed;
+        top: 50%;
+        width: auto;
+        padding: 1em;
+        color: white;
+        font-weight: bold;
+        font-size: 2em;
+        transition: 0.6s ease;
+        text-shadow: 0 0 2px black;
+        &:hover {
+            background-color: black;
+        }
+    }
+    .prev {
+        border-radius: 0 1em 1em 0;
+    }
+    .next {
+        right: 0;
+        border-radius: 1em 0 0 1em;
+    }
+    .caption {
+        box-sizing: border-box;
+        display: none;
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        margin: auto;
+        text-align: center;
+        background: rgba(0,0,0,0.6);
+        padding: 2em;
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 643px) {
+    .reel-cover {
+        margin: 2vw;
+    }
+}
+@media screen and (min-width: 644px) {
+    .reel-cover {
+        margin: 12px;
+    }
+}
