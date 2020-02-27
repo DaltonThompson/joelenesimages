@@ -2,16 +2,16 @@ let modal = document.getElementsByClassName("modal")[0];
 let currentSlide = 0;
 let currentTheme;
 let currentCaption;
-let header = document.getElementsByTagName("header")[0];
 
+//Called by onclick from themed divs
 function selectReel(theme) {
-	modal.style.display = "flex";
+	modal.style.display = "flex"; //Opens the modal (default is "none" to hide it)
 	currentTheme = document.getElementsByClassName(theme);
-	currentSlide = 0; //Resets to first slide
-	lazyLoad();
-	currentTheme[0].style.display = "block";
-	currentCaption = document.getElementsByClassName('caption__' + theme)[0];
-	currentCaption.style.display = "inline-block";
+	currentSlide = 0; //Resets slideshow to first slide
+	lazyLoad(); //loads image if not already
+	currentTheme[0].style.display = "block"; //default is "none" to hide it
+	currentCaption = document.getElementsByClassName('caption__' + theme)[0]; //prepends "caption__" so that we can select a specific caption that applies to all slides of this particular theme
+	currentCaption.style.display = "inline-block"; //default is "none" to hide it
 }
 
 function closeModal() {
@@ -20,6 +20,7 @@ function closeModal() {
 	currentCaption.style.display = "none";
 }
 
+//Onclick from left (n=-1) & right (n=1) arrows trigger function to move to prev or next image.
 function switchSlides(n) {
 	currentTheme[currentSlide].style.display = "none";
 	currentSlide += n;
@@ -28,18 +29,15 @@ function switchSlides(n) {
 	currentTheme[currentSlide].style.display = "block";
 	lazyLoad();
 }
+//I plan to check out methods to incorporate accessibilty for touch screens, especially to make the slides easier to change by adding swipe motion for example. Starting point: https://developers.google.com/web/fundamentals/design-and-ux/input/touch
 
 //ESC key closes modal.
 document.onkeyup = function(e) {
 	if (e.which == 27) closeModal();
 };
 
-//I plan to check out methods to incorporate accessibilty for touch screens. Starting point: https://developers.google.com/web/fundamentals/design-and-ux/input/touch
-
-
-//EVERYTHING BELOW IS RELATED TO LAZY LOADING
+//If the current image has the attribute of data-src, make its src attribute = that, and remove data-src. This never reverts, and is presented as an "IF-then", therefore once the image loads, it doesn't reload.
 function lazyLoad() {
-	//if currentTheme[currentSlide] has the attribute of data-src, make its src attribute = that, and remove data-src.
 	if (currentTheme[currentSlide].hasAttribute("data-src")) {
 		currentTheme[currentSlide].setAttribute("src", currentTheme[currentSlide].getAttribute("data-src"));
 		currentTheme[currentSlide].removeAttribute("data-src");
