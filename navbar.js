@@ -34,10 +34,13 @@ document.getElementsByTagName('footer')[0].innerHTML = `
         </a>
         <br>
         <br>
-        <address>
-            7578 N. Broadway, Suite #3<br>
-            Red Hook, NY 12571
-        </address><br>
+        <a href="https://goo.gl/maps/a89VNPYUai9SSSiz5" alt="Find Joelene's Images on Google Maps" target="_blank">
+            <address>
+                7578 N. Broadway, Suite #3<br>
+                Red Hook, NY 12571
+            </address>
+        </a>
+        <br>
         <div id="copyright">&copy; 2020 Joelene's Images</div>
     </div>    
 `
