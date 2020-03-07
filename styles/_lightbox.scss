@@ -68,7 +68,7 @@
         max-height: 100%;
         transition-delay: 0.6s;
     }
-    .close {
+    #close-modal {
         color: $color1;
         float: right;
         font-size: 2em;
@@ -89,25 +89,29 @@
             background-color: black;
         }
     }
-    .prev, .next {
+    #prev-photo, #next-photo {
         cursor: pointer;
         position: fixed;
         top: 50%;
         width: auto;
+        margin-top: -2em;
         padding: 1em;
         color: white;
         font-weight: bold;
         font-size: 2em;
         transition: 0.6s ease;
-        text-shadow: 0 0 2px black;
+        text-shadow: 0 0 10px black;
+        z-index: 1;
+        opacity: 0.8;
         &:hover {
             background-color: black;
+            opacity: 1;
         }
     }
-    .prev {
+    #prev-photo {
         border-radius: 0 1em 1em 0;
     }
-    .next {
+    #next-photo {
         right: 0;
         border-radius: 1em 0 0 1em;
     }

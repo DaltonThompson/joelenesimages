@@ -25,7 +25,6 @@ function closeModal() {
 	currentCaption.classList.add('hide');
 }
 
-//Onclick from left (n=-1) & right (n=1) arrows trigger function to move to prev or next image.
 function switchSlides(n) {
 	currentTheme[currentSlide].classList.remove('show-photo');
 	currentTheme[currentSlide].classList.add('hide');
@@ -38,16 +37,27 @@ function switchSlides(n) {
 }
 //I plan to check out methods to incorporate accessibilty for touch screens, especially to make the slides easier to change by adding swipe motion for example. Starting point: https://developers.google.com/web/fundamentals/design-and-ux/input/touch
 
-//ESC key closes modal.
-document.onkeyup = function(e) {
-	if (e.which == 27) closeModal();
-};
+document.addEventListener("keyup", event => {
+	if (event.keyCode === 27) closeModal(); //Esc key
+	if (event.keyCode === 37) switchSlides(-1); //left arrow key
+	if (event.keyCode === 39) switchSlides(1); //right arrow key
+});
+
+document.querySelector('#prev-photo').addEventListener("click", event => {switchSlides(-1)});
+document.querySelector('#next-photo').addEventListener("click", event => {switchSlides(1)});
+document.querySelector('#close-modal').addEventListener("click", event => {closeModal()});
+
+let reelCovers = document.querySelectorAll('.reel-cover');
+console.log(reelCovers);
+for (reelCover of reelCovers) {
+	let theme = reelCover.getAttribute("data-theme");
+	reelCover.addEventListener("click", event => {selectReel(theme)});
+}
 
 //If the current image has the attribute of data-src, make its src attribute = that, and remove data-src. This never reverts, and is presented as an "IF-then", therefore once the image loads, it doesn't reload.
 function lazyLoad() {
 	if (currentTheme[currentSlide].hasAttribute("data-src")) {
 		currentTheme[currentSlide].setAttribute("src", currentTheme[currentSlide].getAttribute("data-src"));
 		currentTheme[currentSlide].removeAttribute("data-src");
-		console.log("data-src changed to src!")
 	}
 }
