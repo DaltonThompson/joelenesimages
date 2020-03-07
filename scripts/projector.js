@@ -1,32 +1,39 @@
-let modal = document.getElementsByClassName("modal")[0];
+let modal = document.querySelector('#modal');
 let currentSlide = 0;
 let currentTheme;
 let currentCaption;
 
 //Called by onclick from themed divs
 function selectReel(theme) {
-	modal.style.display = "flex"; //Opens the modal (default is "none" to hide it)
+	modal.className = "show-modal"; //Opens the modal (default is "none" to hide it)
 	currentTheme = document.getElementsByClassName(theme);
 	currentSlide = 0; //Resets slideshow to first slide
 	lazyLoad(); //loads image if not already
-	currentTheme[0].style.display = "block"; //default is "none" to hide it
+	currentTheme[0].classList.remove('hide');
+	currentTheme[0].classList.add('show-photo');
+	 //default is "none" to hide it
 	currentCaption = document.getElementsByClassName('caption__' + theme)[0]; //prepends "caption__" so that we can select a specific caption that applies to all slides of this particular theme
-	currentCaption.style.display = "inline-block"; //default is "none" to hide it
+	currentCaption.classList.remove('hide');
+	currentCaption.classList.add('show-caption'); //default is "none" to hide it
 }
 
 function closeModal() {
-	modal.style.display = "none";
-	currentTheme[currentSlide].style.display = "none";
-	currentCaption.style.display = "none";
+	modal.className = "hide";
+	currentTheme[currentSlide].classList.remove('show-photo');
+	currentTheme[currentSlide].classList.add('hide');
+	currentCaption.classList.remove('show-caption');
+	currentCaption.classList.add('hide');
 }
 
 //Onclick from left (n=-1) & right (n=1) arrows trigger function to move to prev or next image.
 function switchSlides(n) {
-	currentTheme[currentSlide].style.display = "none";
+	currentTheme[currentSlide].classList.remove('show-photo');
+	currentTheme[currentSlide].classList.add('hide');
 	currentSlide += n;
 	if (currentSlide >= currentTheme.length) {currentSlide = 0}
 	if (currentSlide < 0) {currentSlide = currentTheme.length - 1}
-	currentTheme[currentSlide].style.display = "block";
+	currentTheme[currentSlide].classList.add('show-photo');
+	currentTheme[currentSlide].classList.remove('hide');
 	lazyLoad();
 }
 //I plan to check out methods to incorporate accessibilty for touch screens, especially to make the slides easier to change by adding swipe motion for example. Starting point: https://developers.google.com/web/fundamentals/design-and-ux/input/touch

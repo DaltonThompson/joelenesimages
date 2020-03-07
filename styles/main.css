@@ -20,6 +20,25 @@
   margin: 1em;
 }
 
+.hide {
+  display: none;
+  /* Hidden by default */
+}
+
+.show-modal {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.show-photo {
+  display: block;
+}
+
+.show-caption {
+  display: inline-block;
+}
+
 .reel-cover {
   float: left;
   cursor: pointer;
@@ -57,9 +76,7 @@
   opacity: 0%;
 }
 
-.modal {
-  display: none;
-  /* Hidden by default */
+#modal {
   position: fixed;
   /* Stay in place */
   z-index: 2;
@@ -80,16 +97,15 @@
           transition-delay: 0.6s;
 }
 
-.modal .slide {
+#modal .slide {
   margin: auto;
   max-width: 100%;
   max-height: 100%;
-  display: none;
   -webkit-transition-delay: 0.6s;
           transition-delay: 0.6s;
 }
 
-.modal .close {
+#modal .close {
   color: #DCE2DF;
   float: right;
   font-size: 2em;
@@ -109,13 +125,13 @@
   transition: 0.6s ease;
 }
 
-.modal .close:hover, .modal .close:focus {
+#modal .close:hover, #modal .close:focus {
   text-decoration: none;
   cursor: pointer;
   background-color: black;
 }
 
-.modal .prev, .modal .next {
+#modal .prev, #modal .next {
   cursor: pointer;
   position: fixed;
   top: 50%;
@@ -129,23 +145,22 @@
   text-shadow: 0 0 2px black;
 }
 
-.modal .prev:hover, .modal .next:hover {
+#modal .prev:hover, #modal .next:hover {
   background-color: black;
 }
 
-.modal .prev {
+#modal .prev {
   border-radius: 0 1em 1em 0;
 }
 
-.modal .next {
+#modal .next {
   right: 0;
   border-radius: 1em 0 0 1em;
 }
 
-.modal .caption {
+#modal .caption {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  display: none;
   position: absolute;
   bottom: 0;
   left: 50%;
