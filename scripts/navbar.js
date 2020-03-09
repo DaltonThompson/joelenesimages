@@ -3,7 +3,7 @@ document.getElementsByTagName('header')[0].innerHTML = `
         <a class="navbar-brand" href="./index.html">Joelene's Images</a>
         <div class="navbar-collapse">
             <a class="nav-link" href="./about.html">About</a>
-            <!--<a class="nav-link" href="./packages.html">Packages</a>-->
+            <a class="nav-link" href="./prices.html">Prices</a>
             <a class="nav-link" href="./photographs.html">Photographs</a>
         </div>
     </nav>
@@ -11,7 +11,8 @@ document.getElementsByTagName('header')[0].innerHTML = `
 document.getElementsByTagName('footer')[0].innerHTML = `
     <div>
         <strong>Hours:</strong><br>
-        Wed-Thurs: 11:00am - 7:00pm<br>
+        Wed: 11:00am - 5:00pm<br>
+        Thur: 12:00pm - 8:00pm<br>
         Fri: 12:00pm - 7:00pm<br>
         Sat: 10:00am - 5:00pm<br>
         Sun-Tues: Closed<br><br>
