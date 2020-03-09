@@ -1,4 +1,5 @@
 let modal = document.querySelector('#modal');
+let reelCovers = document.querySelectorAll('.reel-cover');
 let currentSlide = 0;
 let currentTheme;
 let currentCaption;
@@ -11,18 +12,20 @@ function selectReel(theme) {
 	lazyLoad(); //loads image if not already
 	currentTheme[0].classList.remove('hide');
 	currentTheme[0].classList.add('show-photo');
-	 //default is "none" to hide it
-	currentCaption = document.getElementsByClassName('caption__' + theme)[0]; //prepends "caption__" so that we can select a specific caption that applies to all slides of this particular theme
+	//default is "none" to hide it
+	
+	//the following code is commented out because captions are not ready to be implemented...
+	/*currentCaption = document.getElementsByClassName('caption__' + theme)[0]; //prepends "caption__" so that we can select a specific caption that applies to all slides of this particular theme
 	currentCaption.classList.remove('hide');
-	currentCaption.classList.add('show-caption'); //default is "none" to hide it
+	currentCaption.classList.add('show-caption'); //default is "none" to hide it*/
 }
 
 function closeModal() {
 	modal.className = "hide";
 	currentTheme[currentSlide].classList.remove('show-photo');
 	currentTheme[currentSlide].classList.add('hide');
-	currentCaption.classList.remove('show-caption');
-	currentCaption.classList.add('hide');
+	/*currentCaption.classList.remove('show-caption');
+	currentCaption.classList.add('hide');*/
 }
 
 function switchSlides(n) {
@@ -37,21 +40,20 @@ function switchSlides(n) {
 }
 //I plan to check out methods to incorporate accessibilty for touch screens, especially to make the slides easier to change by adding swipe motion for example. Starting point: https://developers.google.com/web/fundamentals/design-and-ux/input/touch
 
-document.addEventListener("keyup", event => {
+document.addEventListener("keyup", () => {
 	if (event.keyCode === 27) closeModal(); //Esc key
 	if (event.keyCode === 37) switchSlides(-1); //left arrow key
 	if (event.keyCode === 39) switchSlides(1); //right arrow key
 });
 
-document.querySelector('#prev-photo').addEventListener("click", event => {switchSlides(-1)});
-document.querySelector('#next-photo').addEventListener("click", event => {switchSlides(1)});
-document.querySelector('#close-modal').addEventListener("click", event => {closeModal()});
+document.querySelector('#prev-photo').addEventListener("click", () => {switchSlides(-1)});
+document.querySelector('#next-photo').addEventListener("click", () => {switchSlides(1)});
+document.querySelector('#close-modal').addEventListener("click", () => {closeModal()});
 
-let reelCovers = document.querySelectorAll('.reel-cover');
 console.log(reelCovers);
 for (reelCover of reelCovers) {
 	let theme = reelCover.getAttribute("data-theme");
-	reelCover.addEventListener("click", event => {selectReel(theme)});
+	reelCover.addEventListener("click", () => {selectReel(theme)});
 }
 
 //If the current image has the attribute of data-src, make its src attribute = that, and remove data-src. This never reverts, and is presented as an "IF-then", therefore once the image loads, it doesn't reload.
