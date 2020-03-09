@@ -43,8 +43,6 @@ footer {
     }
 }
 
-h1, h2 { font-family: "Gentium-Basic", serif; }
-
 .float-right {
     float: right;
 }
@@ -62,6 +60,24 @@ main { margin: 2em; }
     color: $color1;
     padding: 1em;
     font-size: 1em;
+}
+table {
+    margin: 0;
+    width: 100%;
+    padding: 0;
+}
+th, tr, td {
+    box-sizing: border-box;
+    padding: 0.5em;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    font-size: 1em;
+}
+
+@media screen and (max-width: 510px) {
+    th, tr, td {
+        font-size: 0.9em;
+    }
 }
 
 .package-pic {
