@@ -57,7 +57,6 @@ footer {
 }
 table {
     margin: 0;
-    width: 100%;
     padding: 0;
 }
 th, tr, td {
@@ -159,6 +158,10 @@ h3 {
         margin: 1em;
         text-align: center;
     }
+}
+.center-flex {
+    display: flex;
+    justify-content: center;
 }
 @media screen and (max-width: 643px) {
     #about-pic {

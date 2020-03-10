@@ -259,7 +259,6 @@ footer > div {
 
 table {
   margin: 0;
-  width: 100%;
   padding: 0;
 }
 
@@ -398,6 +397,15 @@ h3 {
 .flex-container div {
   margin: 1em;
   text-align: center;
+}
+
+.center-flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 @media screen and (max-width: 643px) {
