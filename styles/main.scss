@@ -1,19 +1,18 @@
 @import './variables';
 @import './lightbox';
-@import url('https://fonts.googleapis.com/css?family=Gentium+Basic|ABeeZee|Tangerine:700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Gentium+Basic|Lato:wght@400;700|Tangerine:700&display=swap');
 
 
 body {
-    font-family: 'ABeeZee', ;
+    font-family: 'Lato', sans-serif;
     background-color: $color2;
     color: $color1;
     margin: 0;
 }
 main {
     display: inline-block;
-    margin: 0 1em 0 1em;
+    margin: 0 2em;
 }
-
 nav, footer {
     padding: 1em;
 }
@@ -42,18 +41,13 @@ footer {
         margin: 1em;
     }
 }
-
 .float-right {
     float: right;
 }
-
-main { margin: 2em; }
-
 .action-container {
     padding: 1em;
     text-align: center;
 }
-
 .call-action {
     background-color: $color3;
     border: none;
@@ -73,13 +67,36 @@ th, tr, td {
     border: 1px solid rgba(255, 255, 255, 0.25);
     font-size: 1em;
 }
-
+.no-border {
+    border: 0;
+    h2 {
+        margin: 0;
+        padding: 0;
+    }
+}
+.rounded-top {
+    border-radius: 1em 1em 0 0;
+}
+.rounded-top-left {
+    border-radius: 1em 0 0 0;
+}
+.rounded-top-right {
+    border-radius: 0 1em 0 0;
+}
+.rounded-bottom-left{
+    border-radius: 0 0 0 1em;
+}
+.rounded-bottom {
+    border-radius: 0 0 1em 1em;
+}
+.rounded-bottom-right {
+    border-radius: 0 0 1em 0;
+}
 @media screen and (max-width: 510px) {
     th, tr, td {
         font-size: 0.9em;
     }
 }
-
 .package-pic {
     clear: right;
     float: right;
@@ -87,7 +104,6 @@ th, tr, td {
     height: 300px;
     width: auto;
 }
-
 .icon {
     height: 1em;
     object-fit: cover;
@@ -110,40 +126,11 @@ a {
         &:hover { text-decoration: underline; }
     }
 }
-
+main>h2 {
+    text-align: center;
+}
 h3 {
     margin-top: 1em;
-}
-
-@media screen and (max-width: 643px) {
-    #about-pic {
-        float: none;
-        margin: 0 auto;
-        max-width: 100%;
-        background-position: top;
-    }
-    a.navbar-brand {
-        font-size: 33px;
-    }
-    .logo-text {
-        display: none;
-    }
-    .icon {
-        float: left;
-        width: 2em;
-        height: 2em;
-    }
-    main {
-        margin: 5vw;
-    }
-}
-
-@media screen and (min-width: 644px) {
-    #about-pic {
-        float: right;
-        margin-left: 1em;
-        margin-bottom: 1em;
-    }
 }
 #about-pic {
     display: block;
@@ -160,6 +147,46 @@ h3 {
     }
 }
 .label-text {
-    text-shadow: 0 0 10px $color2;
+    text-shadow: 0 0 5px $color2;
     z-index: 1;
+}
+.flex-container {
+    display: flex;
+    margin: 0 auto;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    div {
+        margin: 1em;
+        text-align: center;
+    }
+}
+@media screen and (max-width: 643px) {
+    #about-pic {
+        float: none;
+        margin: 0 auto;
+        width: 100%;
+        max-width: 411px;
+        height: 274px;
+        background-position: top;
+    }
+    a.navbar-brand {
+        font-size: 33px;
+    }
+    .logo-text {
+        display: none;
+    }
+    .icon {
+        width: 2em;
+        height: 2em;
+    }
+    main {
+        margin: 5vw;
+    }
+}
+@media screen and (min-width: 644px) {
+    #about-pic {
+        float: right;
+        margin-left: 1em;
+        margin-bottom: 1em;
+    }
 }
