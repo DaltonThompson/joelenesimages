@@ -133,9 +133,11 @@ h3 {
 }
 #about-pic {
     display: block;
-    background-image: url("https://www.joelenesimages.com/uploads/1/9/1/0/19107423/published/1382655855.jpg?1579551660");
+    background-image: url("../images/1382655855.jpg");
     height: 274px;
     width: 411px;
+    background-position: center;
+    background-size: cover;
     background-repeat: no-repeat;
     border-radius: 1em;
     position: relative;
