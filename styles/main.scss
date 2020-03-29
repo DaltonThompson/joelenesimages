@@ -1,20 +1,22 @@
 @import './variables';
 @import './lightbox';
-@import url('https://fonts.googleapis.com/css?family=Gentium+Basic|Lato:wght@400;700|Tangerine:700&display=swap');
-
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:wght@300;400|Tangerine:700&display=swap');
 
 body {
-    font-family: 'Lato', sans-serif;
+    font-family: "Open Sans",Arial,Helvetica,sans-serif;
     background-color: $color2;
     color: $color1;
     margin: 0;
 }
 main {
     display: inline-block;
-    margin: 0 2em;
+    margin: 1em 2em;
 }
 nav, footer {
     padding: 1em;
+}
+iframe {
+    width: 100%;
 }
 .pic-container {
     width: 100%;
@@ -24,18 +26,33 @@ nav, footer {
     background-position: center;
     background-size: cover;
 }
+header, footer {
+    background-color: $color3;
+}
 header {
-    background-image: linear-gradient($color3, $color3, $color3, rgba(0,0,0,0));
     text-align: center;
     position: sticky;
     top: 0;
     z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;  
     .nav-link {
-        margin: 0 0.5em;
+        margin: 0 0.25em;
+        font-weight: 300;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        font-size: 12px;
+        opacity: 0.7;
+    }
+    .active {
+        opacity: 100%;
     }
 }
+.no-wrap-nav {
+    white-space: nowrap;
+}
 footer {
-    background-image: linear-gradient(rgba(0, 0, 0,0), $color3, $color3, $color3);
     display: flex;
     & > div {
         margin: 1em;
@@ -45,11 +62,17 @@ footer {
     float: right;
 }
 .action-container {
-    padding: 1em;
+    padding: 1em 0;
     text-align: center;
 }
+.vert-center {
+    position: absolute;
+    top: 50%;
+    right: 5%;
+    transform: translateY(-50%);
+}
 .call-action {
-    background-color: $color3;
+    background-color: $color5;
     border: none;
     color: $color1;
     padding: 1em;
@@ -117,7 +140,7 @@ a {
     text-decoration: none;
     &:hover .icon { opacity: 100%; }
     &.nav-link {
-        &:hover { text-decoration: underline; }
+        &:hover { opacity: 100%; }
     }
     &.navbar-brand {
         font-family: 'Tangerine', cursive;
@@ -185,13 +208,18 @@ h3 {
         height: 2em;
     }
     main {
-        margin: 5vw;
+        margin: 1em 5vw;
+    }
+    .vert-center {
+        position: relative;
+        transform: translateY(0);
+        right: 0;
+        float: right;
     }
 }
 @media screen and (min-width: 644px) {
     #about-pic {
         float: right;
-        margin-left: 1em;
-        margin-bottom: 1em;
+        margin: 1em;
     }
 }
