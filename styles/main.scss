@@ -154,6 +154,14 @@ main>h2 {
 h3 {
     margin-top: 1em;
 }
+#announcement {
+    text-align: center;
+    background-color: $color4;
+    padding: 2em;
+    h2 { margin: 0; }
+    a { color: $color6 }
+    a:hover { text-decoration: underline; }
+}
 #about-pic {
     display: block;
     background-image: url("../images/1382655855.jpg");

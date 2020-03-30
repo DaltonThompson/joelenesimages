@@ -396,6 +396,24 @@ h3 {
   margin-top: 1em;
 }
 
+#announcement {
+  text-align: center;
+  background-color: #273468;
+  padding: 2em;
+}
+
+#announcement h2 {
+  margin: 0;
+}
+
+#announcement a {
+  color: #dcc9ac;
+}
+
+#announcement a:hover {
+  text-decoration: underline;
+}
+
 #about-pic {
   display: block;
   background-image: url("../images/1382655855.jpg");
