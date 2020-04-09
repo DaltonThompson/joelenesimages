@@ -33,6 +33,7 @@
 
 .show-photo {
   display: block;
+  overflow: hidden;
 }
 
 .show-caption {
@@ -91,7 +92,7 @@
   /* Full height */
   overflow: auto;
   /* Enable scroll if needed */
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(0, 0, 0, 0.9);
   /* Black w/ opacity */
   -webkit-transition-delay: 0.6s;
           transition-delay: 0.6s;
@@ -105,52 +106,56 @@
           transition-delay: 0.6s;
 }
 
-#modal #close-modal {
-  color: #DCE2DF;
-  float: right;
+#modal #slide-indicator, #modal #close-modal, #modal #prev-photo, #modal #next-photo {
   font-size: 2em;
-  font-weight: bold;
+  width: auto;
+  color: #DCE2DF;
+  z-index: 1;
+  -webkit-transition: 0.6s ease;
+  transition: 0.6s ease;
+  opacity: 0.8;
+  padding: 1em;
+  text-shadow: 0 0 10px black;
+}
+
+#modal #slide-indicator:hover, #modal #slide-indicator:focus, #modal #close-modal:hover, #modal #close-modal:focus, #modal #prev-photo:hover, #modal #prev-photo:focus, #modal #next-photo:hover, #modal #next-photo:focus {
+  text-decoration: none;
+  cursor: pointer;
+  background-color: black;
+  opacity: 0.8;
+}
+
+#modal #slide-indicator {
+  font-size: 1em;
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  margin: auto;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.1);
+  padding: 0.5em;
+}
+
+#modal #close-modal {
+  float: right;
   position: absolute;
   top: 0;
   right: 0;
-  padding: 1em;
-  width: auto;
   height: auto;
   text-align: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   border-radius: 0 0 0 1em;
-  -webkit-transition: 0.6s ease;
-  transition: 0.6s ease;
-}
-
-#modal #close-modal:hover, #modal #close-modal:focus {
-  text-decoration: none;
-  cursor: pointer;
-  background-color: black;
 }
 
 #modal #prev-photo, #modal #next-photo {
   cursor: pointer;
   position: fixed;
   top: 50%;
-  width: auto;
   margin-top: -2em;
-  padding: 1em;
-  color: white;
-  font-weight: bold;
-  font-size: 2em;
-  -webkit-transition: 0.6s ease;
-  transition: 0.6s ease;
-  text-shadow: 0 0 10px black;
-  z-index: 1;
-  opacity: 0.8;
-}
-
-#modal #prev-photo:hover, #modal #next-photo:hover {
-  background-color: black;
-  opacity: 1;
 }
 
 #modal #prev-photo {

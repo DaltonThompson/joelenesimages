@@ -9,6 +9,7 @@ function selectReel(theme) {
 	modal.className = "show-modal"; //Opens the modal (default is "none" to hide it)
 	currentTheme = document.getElementsByClassName(theme);
 	currentSlide = 0; //Resets slideshow to first slide
+	document.querySelector('#slide-indicator').textContent = (currentSlide + 1) + '/' + currentTheme.length;
 	lazyLoad(); //loads image if not already
 	currentTheme[0].classList.remove('hide');
 	currentTheme[0].classList.add('show-photo');
@@ -34,6 +35,7 @@ function switchSlides(n) {
 	currentSlide += n;
 	if (currentSlide >= currentTheme.length) {currentSlide = 0}
 	if (currentSlide < 0) {currentSlide = currentTheme.length - 1}
+	document.querySelector('#slide-indicator').textContent = (currentSlide + 1) + '/' + currentTheme.length;
 	currentTheme[currentSlide].classList.add('show-photo');
 	currentTheme[currentSlide].classList.remove('hide');
 	lazyLoad();
@@ -50,7 +52,25 @@ document.querySelector('#prev-photo').addEventListener("click", () => {switchSli
 document.querySelector('#next-photo').addEventListener("click", () => {switchSlides(1)});
 document.querySelector('#close-modal').addEventListener("click", () => {closeModal()});
 
-console.log(reelCovers);
+let initialTouchPosition = null;
+document.querySelector('#modal').addEventListener("touchstart", (event) => {
+	initialTouchPosition = event.touches[0].pageX;
+});
+document.querySelector('#modal').addEventListener("touchmove", (event) => {
+	const moveDistance = initialTouchPosition - event.touches[0].pageX;
+	if (moveDistance >= 150) {
+		switchSlides(1);
+		initialTouchPosition = event.touches[0].pageX;
+	}
+	if (moveDistance <= -150) {
+		switchSlides(-1);
+		initialTouchPosition = event.touches[0].pageX;
+	}
+});
+document.querySelector('#modal').addEventListener("touchend", (event) => {
+	document.querySelector('.show-photo').style.transform = `translateX(0px)`;
+});
+
 for (reelCover of reelCovers) {
 	let theme = reelCover.getAttribute("data-theme");
 	reelCover.addEventListener("click", () => {selectReel(theme)});
