@@ -8,9 +8,13 @@ body {
     color: $color1;
     margin: 0;
 }
+p {
+    max-width: 70ch;
+}
 main {
-    display: inline-block;
-    margin: 1em 5vw;
+    display: table;
+    margin: auto;
+    padding: 1em;
 }
 nav, footer {
     padding: 1em;
@@ -229,6 +233,6 @@ h3 {
 }
 @media screen and (min-width: 1080px) {
     main {
-        margin: 1em 10vw;
+        // margin: 1em 10vw;
     }
 }
