@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "autoprefixer": "^10.4.21",
+    "bootstrap": "^5.3.3",
+    "sass": "^1.86.0"
+  },
+  "scripts": {
+    "compileSass": "sass --watch styles/main.scss styles/main.css"
+  }
+}
